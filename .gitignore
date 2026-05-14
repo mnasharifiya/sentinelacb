@@ -1,0 +1,16 @@
+﻿__pycache__/
+*.py[cod]
+*.class
+.venv/
+venv/
+env/
+.pytest_cache/
+logs/
+outputs/
+*.csv
+*.png
+*.jsonl
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

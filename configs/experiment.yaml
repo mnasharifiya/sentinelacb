@@ -1,0 +1,22 @@
+experiment:
+  name: "scenario_ab_benchmark"
+  seed: 42
+  num_iterations: 500
+  deterministic: true
+  output_dir: "outputs/experiment_artifacts"
+
+simulation:
+  attack_distribution:
+    unauthorized_permission: 0.25
+    rapid_spamming: 0.20
+    stealth_deviation: 0.25
+    privilege_escalation: 0.30
+
+evaluation:
+  metrics:
+    - detection_rate
+    - false_positive_rate
+    - false_negative_rate
+    - enforcement_success_rate
+    - mean_latency_us
+    - audit_integrity

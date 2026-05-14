@@ -1,0 +1,28 @@
+permissions:
+  allowed_actions:
+    - read_sensor
+    - minor_trade
+    - log_status
+  high_risk_actions:
+    - execute_large_trade
+    - shutdown_power_grid
+    - modify_network_config
+  denied_prefixes:
+    - shell_
+    - exfil_
+
+thresholds:
+  risk_hitl: 0.65
+  risk_block: 0.85
+  risk_safe_state: 0.95
+  frequency_window_sec: 10
+  frequency_limit: 10
+
+scoring:
+  weights:
+    sensitivity: 0.4
+    criticality: 0.3
+    context: 0.3
+  temporal_alpha: 0.3
+  confidence_base: 0.5
+  deviation_penalty: 0.15
