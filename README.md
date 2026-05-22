@@ -3,8 +3,7 @@
 This repository contains the prototype implementation and empirical 
 validation code for the paper:
 
-> M. Muttaka, "A Layered Cybersecurity Framework for Controlling 
-> Superintelligence AI," SISY 2026, IEEE.
+> M. Muttaka, "A Layered Cybersecurity Framework for Enforcing Human Control Over Autonomous AI Systems," SISY 2026, IEEE.
 
 ## Repository Structure
 
@@ -48,3 +47,4 @@ Muhammad Muttaka
 School of Cybersecurity, Astana IT University  
 Astana, Kazakhstan  
 255902@astanait.edu.kz
+mmnasharifiya@gmail.com
