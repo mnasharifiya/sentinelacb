@@ -1,4 +1,4 @@
-# super_ai_control_prototype_v2.py
+# advanced_ai_control_prototype_v2.py
 
 import time
 import hashlib
@@ -10,7 +10,7 @@ import random # For simulating AI decision-making
 # --- SentinelACB: The Layered Control Framework ---
 class SentinelACB:
     """
-    Implements a layered cybersecurity control model for Super AI actions.
+    Implements a layered cybersecurity control model for Advance AI actions.
     Combines permission boundaries, HITL, monitoring, and audit logging.
     """
     def __init__(self):
