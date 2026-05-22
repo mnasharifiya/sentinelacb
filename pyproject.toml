@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "sentinelacb"
 version = "1.0.0"
-description = "Layered Cybersecurity Framework for Superintelligence AI Control"
+description = "Layered Cybersecurity Framework for Advanced Autonomous AI Control"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -19,7 +19,6 @@ dependencies = [
 ]
 
 [tool.setuptools.packages.find]
-# Only include the actual Python package, exclude everything else
 include = ["sentinelacb*"]
 exclude = ["logs*", "configs*", "outputs*", "datasets*", "notebooks*", "evaluation*", "experiments*", "tests*", "scripts*", "docs*"]
 
