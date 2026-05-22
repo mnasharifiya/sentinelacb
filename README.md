@@ -3,13 +3,13 @@
 This repository contains the prototype implementation and empirical 
 validation code for the paper:
 
-> M. Muttaka, "A Layered Cybersecurity Framework for Enforcing Human Control Over Autonomous AI Systems," SISY 2026, IEEE.
+> M. Muttaka, "A Layered Cybersecurity Framework for Enforcing Human Control Over Autonomous AI Systems"
 
 ## Repository Structure
 
 | File/Folder | Description |
 |---|---|
-| `super_ai_control_prototype_v2.py` | Original prototype — Table 3 layer-by-layer validation |
+| `advance_ai_control_prototype_v2.py` | Original prototype — Table 3 layer-by-layer validation |
 | `sentinelacb/` | Extended framework — 500-event adversarial simulation |
 | `configs/experiment.yaml` | Experiment configuration (seed=42) |
 | `outputs/metrics.csv` | Table 4 empirical results |
@@ -28,7 +28,7 @@ validation code for the paper:
 ## Reproduce Table 3 — Layer-by-Layer Validation
 
 ```bash
-python super_ai_control_prototype_v2.py
+python advance_ai_control_prototype_v2.py
 ```
 
 When prompted for HITL approval type `yes` and press Enter.
