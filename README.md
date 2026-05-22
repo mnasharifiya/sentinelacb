@@ -31,7 +31,7 @@ python advanced_agentic_ai_control_prototype_v2.py
 
 When prompted for HITL approval type yes and press Enter.
 
-Reproduce Table 4 — 500-Event Adversarial Simulation
+## Reproduce Table 4 — 500-Event Adversarial Simulation
 
 python -m sentinelacb.cli.main --config configs/experiment.yaml
 
