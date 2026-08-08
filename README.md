@@ -1,74 +1,119 @@
-```markdown
-# SentinelACB — Five-Layer Cybersecurity Framework for AI Control
+# SentinelACB
 
-Prototype implementation and empirical validation code for:
+**Research prototype and reproducibility artifacts for layered runtime security controls over autonomous AI systems.**
 
-> M. Muttaka, "A Layered Cybersecurity Framework for Enforcing Human Control Over Autonomous AI Systems"
+SentinelACB is the research prototype that preceded the development of the broader **AISec runtime-security framework**.
 
+The repository contains the implementation and experimental artifacts associated with the study:
 
-## 📂 Repository Structure
+> **Layered Cybersecurity For Enforcing Human Control Over Autonomous AI**
 
-| File/Folder | Description |
-|-------------|-------------|
-| `advanced_agentic_ai_control_prototype_v2.py` | Prototype implementation — reproduces Table 3 (layer-by-layer validation) |
-| `sentinelacb/` | Extended framework — 500-event adversarial simulation |
-| `configs/experiment.yaml` | Experiment configuration (seed = 42) |
-| `outputs/metrics.csv` | Empirical results — reproduces Table 4 |
-| `logs/audit_chain.jsonl` | Verified SHA-256 audit chain |
+Accepted at **IEEE SISY 2026**.
 
+---
 
-## 🛡️ Five Control Layers
+## Overview
 
-| Layer | Name | Mechanism |
-|-------|------|-----------|
-| 1 | Permission Boundaries | Allowlist \(P \subseteq A\); high-risk set \(H \subseteq A\) |
-| 2 | Human-in-the-Loop Gate | Interactive approval for \(a \in H\) |
-| 3 | Circuit Breaker | Token bucket rate limiter |
-| 4 | Kill Switch & Safe State | Hardware-isolated external control files |
-| 5 | Audit Log | SHA-256 hash chain — tamper-evident |
+Autonomous AI agents may propose actions that interact with external systems such as APIs, databases, files, or command-execution environments.
 
+SentinelACB explores a layered security architecture in which agent-proposed actions are evaluated by externally enforced controls before consequential operations are permitted.
 
-## ▶️ Reproduce Table 3 — Layer-by-Layer Validation
+The prototype combines:
 
-Run the prototype script:
+1. **Permission Boundaries**
+2. **Human-in-the-Loop Review**
+3. **Rate Limiting / Circuit Breaking**
+4. **Kill-Switch and Safe-State Controls**
+5. **Tamper-Evident Audit Logging**
+
+The central design principle is that an AI agent's proposed action should not automatically be treated as authorization to execute that action.
+
+---
+
+## Repository Scope
+
+This repository represents the **SentinelACB research prototype** used in the original layered-security study.
+
+It is preserved for:
+
+- research reproducibility;
+- experimental verification;
+- historical provenance;
+- inspection of the original prototype architecture;
+- reproduction of reported experimental tables.
+
+SentinelACB should not be interpreted as the complete architecture or current development state of AISec.
+
+For the actively developed runtime-security framework, see the main AISec repository.
+
+---
+
+## Repository Structure
+
+| Path | Purpose |
+|---|---|
+| `advanced_agentic_ai_control_prototype_v2.py` | Original prototype used for layer-by-layer validation |
+| `sentinelacb/` | Extended SentinelACB implementation used for adversarial simulation |
+| `configs/experiment.yaml` | Reproducible experiment configuration |
+| `outputs/metrics.csv` | Experimental metrics used in the reported evaluation |
+| `logs/audit_chain.jsonl` | Tamper-evident SHA-256 audit-chain records |
+
+---
+
+## Security Architecture
+
+### Layer 1 — Permission Boundaries
+
+Actions are evaluated against explicitly defined permission boundaries.
+
+Conceptually, for action space \(A\):
+
+- \(P \subseteq A\) represents permitted actions;
+- \(H \subseteq A\) represents actions requiring additional human authorization.
+
+Actions outside the permitted boundary can be denied before execution.
+
+---
+
+### Layer 2 — Human-in-the-Loop Review
+
+Selected high-risk actions can be deferred for human approval rather than being executed automatically.
+
+Human review is intended for designated high-risk operations rather than every ordinary agent action.
+
+---
+
+### Layer 3 — Circuit Breaker
+
+A token-bucket rate limiter constrains excessive or repeated action attempts.
+
+This layer provides an additional operational control against uncontrolled action frequency.
+
+---
+
+### Layer 4 — Kill Switch and Safe State
+
+The prototype includes externally controlled safe-state mechanisms that can restrict normal agent operation when containment is required.
+
+This repository does **not** claim hardware-enforced isolation unless such isolation is independently provided by the deployment environment.
+
+---
+
+### Layer 5 — Tamper-Evident Audit Log
+
+Security-relevant events are linked using SHA-256 hashes to provide tamper-evident audit records.
+
+The audit mechanism is intended to make modification, deletion, or reordering detectable under the retained-chain assumptions.
+
+It should not be interpreted as cryptographic immutability against complete host compromise or total replacement of the audit store.
+
+---
+
+## Reproducing the Experiments
+
+### Layer-by-Layer Validation
+
+Run:
 
 ```bash
 python advanced_agentic_ai_control_prototype_v2.py
-```
-
-When prompted for HITL approval, type `yes` and press Enter.
-
-
-## ▶️ Reproduce Table 4 — 500-Event Adversarial Simulation
-
-Run the adversarial simulation:
-
-```bash
-python -m sentinelacb.cli.main --config configs/experiment.yaml
-```
-
-Results are saved to `outputs/metrics.csv`.
-
-
-
-## 🧪 Notes on Experiments
-
-- **Seed**: The experiment configuration uses `seed = 42` for reproducibility.  
-- **Metrics**: `outputs/metrics.csv` contains per-event metrics used to generate Table 4 in the paper.  
-- **Audit chain**: `logs/audit_chain.jsonl` contains the SHA-256 hash chain entries; each line is a JSON object with event metadata and the corresponding hash.
-
-
-## 👤 Author
-
-**Muhammad Muttaka**  
-School of Cybersecurity, Astana IT University  
-Astana, Kazakhstan
-
-📧 255902@astanait.edu.kz  
-📧 mmnasharifiya@gmail.com
-
-
-## 📜 License
-
-MIT License
-```
