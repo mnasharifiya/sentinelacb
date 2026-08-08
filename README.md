@@ -1,3 +1,6 @@
+Yes. This README should look like a **research software artifact**, not a student prototype page. I would replace the current README with the version below.
+
+````markdown
 # SentinelACB
 
 **Research prototype and reproducibility artifacts for layered runtime security controls over autonomous AI systems.**
@@ -117,3 +120,163 @@ Run:
 
 ```bash
 python advanced_agentic_ai_control_prototype_v2.py
+````
+
+When the prototype requests human approval for a designated high-risk action, enter:
+
+```text
+yes
+```
+
+and press Enter.
+
+This experiment corresponds to the layer-by-layer validation reported in the associated study.
+
+---
+
+### 500-Event Adversarial Simulation
+
+Run:
+
+```bash
+python -m sentinelacb.cli.main --config configs/experiment.yaml
+```
+
+The experiment configuration uses:
+
+```text
+seed = 42
+```
+
+for reproducibility.
+
+Generated metrics are written to:
+
+```text
+outputs/metrics.csv
+```
+
+---
+
+## Audit Evidence
+
+Audit-chain records are stored in:
+
+```text
+logs/audit_chain.jsonl
+```
+
+Each entry contains event metadata together with information required to verify the SHA-256 hash-chain relationship.
+
+The audit mechanism is **tamper-evident**, not an immutable logging system.
+
+---
+
+## Reproducibility Notes
+
+The repository preserves the original experimental configuration and artifacts associated with the SentinelACB study.
+
+When reproducing results:
+
+* use the provided experiment configuration;
+* preserve the configured random seed;
+* avoid modifying policies or thresholds before reproduction;
+* retain generated logs and metrics;
+* record the Python and dependency environment used for the run.
+
+Differences caused by operating-system, dependency, or runtime-version changes should be reported rather than silently corrected.
+
+---
+
+## Relationship to AISec
+
+SentinelACB is the predecessor research prototype to **AISec**.
+
+The subsequent AISec project expands the runtime-security architecture with a broader enforcement model, operational tooling, policy handling, monitoring, audit capabilities, and evaluation infrastructure.
+
+**AISec repository:**
+[https://github.com/mnasharifiya/aisec](https://github.com/mnasharifiya/aisec)
+
+SentinelACB remains available as a separate repository to preserve the provenance and reproducibility of the original research.
+
+---
+
+## Research Status
+
+The associated paper:
+
+> **Layered Cybersecurity For Enforcing Human Control Over Autonomous AI**
+
+has been accepted at **IEEE SISY 2026**.
+
+The repository should therefore be interpreted as research software supporting that study rather than as a claim of universal autonomous-AI safety or production-ready protection.
+
+The evaluation does not establish:
+
+* universal AI safety;
+* general AI alignment;
+* protection against every prompt-injection technique;
+* robustness across every language, model, provider, or agent framework;
+* complete security under host compromise;
+* zero false-positive probability;
+* production readiness for arbitrary environments.
+
+---
+
+## Software Citation
+
+SentinelACB is also archived as research software:
+
+> Muttaka, M. (2026). *SentinelACB v1.0.0: Layered Cybersecurity Framework for Superintelligence AI Control* [Computer software]. Zenodo.
+
+**DOI:** [https://doi.org/10.5281/zenodo.20191264](https://doi.org/10.5281/zenodo.20191264)
+
+---
+
+## Author
+
+**Muhammad Muttaka**
+Cybersecurity, Astana IT University
+Astana, Kazakhstan
+
+Email: [255902@astanait.edu.kz](mailto:255902@astanait.edu.kz)
+Email: [mmnasharifiya@gmail.com](mailto:mmnasharifiya@gmail.com)
+
+GitHub: [@mnasharifiya](https://github.com/mnasharifiya)
+
+---
+
+## License
+
+This project is released under the **MIT License**.
+
+See [`LICENSE`](LICENSE) for details.
+
+```
+
+### Why this version is stronger
+
+It fixes several things in the old README:
+
+- removes the questionable **“hardware-isolated”** claim;
+- uses the exact paper title;
+- clearly explains that SentinelACB is the **predecessor to AISec**, so visitors don't think you have duplicate competing frameworks;
+- distinguishes HITL from “humans approving every action”;
+- says the audit chain is **tamper-evident, not immutable**;
+- adds appropriate research limitations;
+- makes the repository look reproducible rather than merely demonstrative;
+- adds the public Zenodo DOI;
+- removes malformed Markdown such as `mailto\:`;
+- removes the broken trailing code fences;
+- avoids claiming that AISec/SentinelACB solves prompt injection universally.
+
+One small change I would make before you paste it: in the **Author** section, I prefer `Cybersecurity student, Astana IT University` rather than simply `Cybersecurity, Astana IT University`, because it makes your affiliation completely unambiguous.
+
+So use:
+
+> **Muhammad Muttaka**  
+> Cybersecurity student, Astana IT University  
+> Astana, Kazakhstan
+
+After replacing the README, don't commit immediately if you're editing locally. Show me the result or say **done**, and then we'll handle the `-sentinelacb-prototype` repository. 
+```
