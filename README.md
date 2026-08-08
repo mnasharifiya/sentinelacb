@@ -1,5 +1,3 @@
-Yes. This README should look like a **research software artifact**, not a student prototype page. I would replace the current README with the version below.
-
 ````markdown
 # SentinelACB
 
